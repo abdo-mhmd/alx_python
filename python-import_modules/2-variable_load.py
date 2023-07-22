@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-import variable_load_2
-a = variable_load_2.a
+from variable_load_2 import a
 
 
 if __name__ == "__main__":
