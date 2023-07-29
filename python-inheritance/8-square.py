@@ -1,4 +1,7 @@
-#!/usr/bin/python3
+"""This is a sample module named my_module.
+
+This module contains a class and a function.
+"""
 Rectangle = __import__('7-rectangle').Rectangle
 """This is a sample module named my_module.
 

@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 """This is a sample module named my_module.
 
 This module contains a class and a function.
@@ -76,3 +75,20 @@ class BaseGeometry:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
+
+        def __init_subclass__(cls):
+            """
+            Override the __init_subclass__ method with an empty implementation.
+
+            This method is called when a subclass of BaseGeometry
+            is created, but it's not needed in this class.
+            By providing an empty implementation,
+            we effectively remove it from the class.
+
+            Usage:
+            # Subclass Square will not inherit the i
+            __init_subclass__ method from BaseGeometry.
+            class Square(BaseGeometry):
+                pass
+            """
+            pass
