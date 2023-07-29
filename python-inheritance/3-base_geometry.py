@@ -15,4 +15,3 @@ class BaseGeometry:
     Attributes:
         None
     """
-    pass
