@@ -3,6 +3,8 @@
 
 This module contains a class and a function.
 """
+
+
 class Square:
     """A class representing a square.
 
