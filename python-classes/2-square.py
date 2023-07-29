@@ -1,4 +1,10 @@
 #!/usr/bin/python3
+"""This is a sample module named my_module.
+
+This module contains a class and a function.
+"""
+
+
 class Square:
     """
     A class representing a square.

@@ -1,4 +1,10 @@
 #!/usr/bin/python3
+"""This is a sample module named my_module.
+
+This module contains a class and a function.
+"""
+
+
 class Square:
     """
     A class representing a square.
@@ -46,18 +52,52 @@ class Square:
             raise TypeError("size must be an integer")
 
     def is_negative(self, size):
+        """
+        Checks if the given size is non-negative.
+
+        Args:
+            size: The value to be checked.
+
+        Returns:
+            int: The non-negative integer value.
+
+        Raises:
+            ValueError: If the provided value is negative.
+        """
         if size >= 0:
             return (size)
         else:
             raise ValueError("size must be >= 0")
 
     def area(self):
+        """
+        Calculate the area of the square.
+
+        Returns:
+            int: The area of the square.
+        """
         return (self.__size ** 2)
 
     @property
     def size(self):
+        """
+        Get the size of the square.
+
+        Returns:
+            int: The size of the square.
+        """
         return (self.__size)
 
     @size.setter
     def size(self, value):
+        """
+        Set the size of the square.
+
+        Args:
+            value (int): The new size to set.
+
+        Raises:
+            TypeError: If the provided value is not an integer.
+            ValueError: If the provided value is less than 0.
+        """
         self.__size = self.is_int(value)
