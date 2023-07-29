@@ -110,6 +110,4 @@ class Square:
             print()
         else:
             for row in range(self.__size):
-                for i in range(self.__size):
-                    print("#", end="")
-                print("\n")
+                print("#" * self.__size)
