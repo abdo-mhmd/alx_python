@@ -19,6 +19,7 @@ class BaseGeometry:
         __init_subclass__ method from the class.
         """
         pass
+
     def __dir__(self):
         """
         Override the dir() method to exclude
