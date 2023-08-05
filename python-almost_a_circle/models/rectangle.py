@@ -172,7 +172,10 @@ class Rectangle(Base):
             str: The formatted string containing the class name,
             id, position, width, and height.
         """
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+        id = self.id
+        x = self.x
+        y = self.y
+        return f"[Rectangle] ({id}) {x}/{y} - {self.width}/{self.height}"
 
     def update(self, *args, **kwargs):
         """
