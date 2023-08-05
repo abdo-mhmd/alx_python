@@ -1,3 +1,7 @@
+"""
+This module contains the Base class,
+which serves as the base for other classes.
+"""
 from models.rectangle import Rectangle
 """
 The Rectangle class represents a rectangle with

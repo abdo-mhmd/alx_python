@@ -1,9 +1,11 @@
 """
-This module contains the Base class, which serves as the base for other classes.
+This module contains the Base class,
+which serves as the base for other classes.
 """
 from models.base import Base
 """
-This module contains the Base class, which serves as the base for other classes.
+This module contains the Base class,
+which serves as the base for other classes.
 """
 
 
