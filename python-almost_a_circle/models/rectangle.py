@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 from models.base import Base
-Base = __import__('base').Base
 '''rectangle'''
+
 
 class Rectangle(Base):
 

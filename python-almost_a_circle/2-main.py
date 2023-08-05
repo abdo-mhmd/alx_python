@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ 2-main """
 from models.rectangle import Rectangle
-Rectangle = __import__('rectangle').Rectangle
+
 if __name__ == "__main__":
 
     try:

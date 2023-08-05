@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ 0-main """
 from models.base import Base
-Base = __import__('base').Base
+
 if __name__ == "__main__":
 
     b1 = Base()
