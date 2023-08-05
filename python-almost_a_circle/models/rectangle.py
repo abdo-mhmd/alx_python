@@ -1,8 +1,9 @@
+"""
+This module contains the Base class, which serves as the base for other classes.
+"""
 from models.base import Base
 """
-    The Rectangle class represents a rectangle with width,
-    height, position (x, y), and an identifier.
-    It inherits from the Base class.
+This module contains the Base class, which serves as the base for other classes.
 """
 
 
