@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+This module contains the Base class, which serves
+as the base for other classes.
+"""
 import requests
 
 
