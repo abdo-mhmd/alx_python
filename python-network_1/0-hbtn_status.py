@@ -19,6 +19,7 @@ def fetch_and_display_status(url):
     """
     response = requests.get(url)
     content = response.text
+    print("Body response:")
     print("\t- type:", type(content))
     print("\t- content:", content)
 
