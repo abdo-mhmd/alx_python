@@ -11,21 +11,19 @@ This module contains the Base class, which serves
 as the base for other classes.
 """
 
-
-if len(sys.argv) > 1:
-    q = sys.argv[1]
-else:
-    q = ""
-pyload = {"q": q}
-url = "http://0.0.0.0:5000/search_user"
-response = requests.post(url, data=pyload)
+url = "https://httpbin.org/post"
+# url = "http://0.0.0.0:5000/search_user"
+letter = sys.argv[1] if len(sys.argv) > 1 else ""
+payload = {'q': letter}
+response = requests.post(url, data=payload)
 try:
-    json = response.json()
-    id = json.get("id")
-    name = json("name")
-    if id is not None and name is not None:
-        print(f"[{id}] {name}")
+    json_data = response.json()
+    if isinstance(json_data, dict) and 'id' in json_data and 'name' in json_data:
+        print("[{}] {}".format(json_data['id'], json_data['name']))
     else:
-        print("No result")
-except requests.exceptions.InvalidJSONError:
+        if json_data == {}:
+            print("No result")
+        else:
+            print("Not a valid JSON")
+except ValueError:
     print("Not a valid JSON")
