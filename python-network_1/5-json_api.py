@@ -11,8 +11,8 @@ This module contains the Base class, which serves
 as the base for other classes.
 """
 
-url = "https://httpbin.org/post"
-# url = "http://0.0.0.0:5000/search_user"
+
+url = "http://0.0.0.0:5000/search_user"
 letter = sys.argv[1] if len(sys.argv) > 1 else ""
 payload = {'q': letter}
 response = requests.post(url, data=payload)
