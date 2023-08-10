@@ -1,10 +1,13 @@
-#!/usr/bin/python3
 """
 This module contains the Base class, which serves
 as the base for other classes.
 """
 import requests
 import sys
+"""
+This module contains the Base class, which serves
+as the base for other classes.
+"""
 
 
 def fetch_github_user_id(username, personal_access_token):
