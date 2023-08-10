@@ -24,6 +24,5 @@ def fetch_and_display_status(url):
     print("\t- content:", content)
 
 
-if __name__ == '__main__':
-    url = "https://alu-intranet.hbtn.io/status"
-    fetch_and_display_status(url)
+url = "https://alu-intranet.hbtn.io/status"
+fetch_and_display_status(url)
