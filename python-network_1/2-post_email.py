@@ -17,9 +17,9 @@ email = sys.argv[2]
 pyload = {"email": email}
 response = requests.post(url, data=pyload)
 try:
-    json = response.json()
+    json = response.json().get("form")
     if json:
-        get_email = json.get("form")["email"]
-        print("Your email is:", get_email)
+        get_email = json.get("email")
+        print("Email:", get_email)
 except ValueError as e:
     print(e)
