@@ -6,7 +6,6 @@ import requests
 import sys
 
 
-
 def fetch_github_user_id(username, personal_access_token):
     """
     Fetches the GitHub user ID using Basic Authentication
@@ -31,6 +30,7 @@ def fetch_github_user_id(username, personal_access_token):
         return user_id
     else:
         return None
+
 
 """
 This module contains the Base class, which serves
