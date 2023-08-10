@@ -4,10 +4,7 @@ as the base for other classes.
 """
 import requests
 import sys
-"""
-This module contains the Base class, which serves
-as the base for other classes.
-"""
+
 
 
 def fetch_github_user_id(username, personal_access_token):
@@ -34,6 +31,11 @@ def fetch_github_user_id(username, personal_access_token):
         return user_id
     else:
         return None
+
+"""
+This module contains the Base class, which serves
+as the base for other classes.
+"""
 
 
 username = sys.argv[1]
