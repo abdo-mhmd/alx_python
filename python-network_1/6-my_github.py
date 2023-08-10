@@ -33,9 +33,7 @@ def fetch_github_user_id(username, personal_access_token):
         return None
 
 
-if __name__ == "__main__":
-    username = sys.argv[1]
-    personal_access_token = sys.argv[2]
-    user_id = fetch_github_user_id(username, personal_access_token)
-    print(user_id)
-
+username = sys.argv[1]
+personal_access_token = sys.argv[2]
+user_id = fetch_github_user_id(username, personal_access_token)
+print(user_id)
