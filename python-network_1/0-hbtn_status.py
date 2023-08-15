@@ -1,14 +1,12 @@
 #!/usr/bin/python3
-"""
-This module contains the Base class, which serves
-as the base for other classes.
-"""
-import requests
+"""fetches https://intranet.hbtn.io/status"""
+import urllib.request as request
 
 
-url = "https://alu-intranet.hbtn.io/status"
-response = requests.get(url)
-content = response.text
-print("Body response:")
-print("\t- type:", type(content))
-print("\t- content:", content)
+if __name__ == "__main__":
+    with request.urlopen('https://intranet.hbtn.io/status') as r:
+        html = r.read()
+        print('Body response:')
+        print("\t- type: {}".format(type(html)))
+        print("\t- content: {}".format(html))
+        print("\t- utf8 content: {}".format(html.decode('utf-8')))
