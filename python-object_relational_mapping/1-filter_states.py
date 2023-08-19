@@ -11,7 +11,7 @@ if __name__ == '__main__':
 
     try:
         db = s.connect(host="localhost", port=3306,
-                user=username, passwd=password, db=database)
+                       user=username, passwd=password, db=database)
     except s.Error as e:
         print(e)
 
@@ -22,6 +22,5 @@ if __name__ == '__main__':
     for data in cur.fetchall():
         if data[1][0] == 'N':
             print(data)
-
     cur.close()
     db.close()
