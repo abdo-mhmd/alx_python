@@ -11,16 +11,17 @@ if __name__ == '__main__':
 
     try:
         db = s.connect(host="localhost", port=3306,
-                       user=username, passwd=password, db=database)
+                user=username, passwd=password, db=database)
     except s.Error as e:
         print(e)
 
     cur = db.cursor()
-    q = "SELECT * FROM states WHERE UPPER(name) LIKE 'N%' ORDER BY id"
+    q = "SELECT * FROM states ORDER BY id"
     cur.execute(q)
 
     for data in cur.fetchall():
-        print(data)
+        if data[1][0] == 'N':
+            print(data)
 
     cur.close()
     db.close()
