@@ -1,27 +1,24 @@
 #!/usr/bin/python3
-"""lists all states from the database 'hbtn_0e_0_usa'"""
-
-import MySQLdb as s
+import MySQLdb
 import sys
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
     name = sys.argv[4]
 
-    try:
-        db = s.connect(host="localhost", port=3306,
-                       user=username, passwd=password, db=database)
-    except s.Error as e:
-        print(e)
+    db = MySQLdb.connect(host="localhost", port=3306,
+                         user=username, passwd=password, db=database)
 
-    cur = db.cursor()
-    q = "SELECT * FROM states WHERE name = '{}' ORDER BY id".format(name)
-    cur.execute(q)
+    cursor = db.cursor()
 
-    for data in cur.fetchall():
-        print(data)
+    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id".format(name)
 
-    cur.close()
+    cursor.execute(query)
+
+    for row in cursor.fetchall():
+        print(row)
+
+    cursor.close()
     db.close()
