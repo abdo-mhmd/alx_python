@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
     for keyword in query:
         if keyword in ["DROP", "TRUNCATE"]:
-            query = "SELECT * FROM states WHERE name = '{}' ORDER BY id".format(name)
+            query = "SELECT * FROM states ORDER BY id"
     cursor.execute(query)
 
     for row in cursor.fetchall():
