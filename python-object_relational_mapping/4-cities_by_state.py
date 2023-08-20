@@ -9,20 +9,20 @@ if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
-    name = sys.argv[4]
 
     db = MySQLdb.connect(host="localhost", port=3306,
                          user=username, passwd=password, db=database)
 
     cursor = db.cursor()
 
-    query = "SELECT * FROM states WHERE name = %(name)s ORDER BY id"
+    query = """SELECT cities.id, cities.name, states.name
+    FROM cities INNER JOIN states
+    ON cities.state_id = states.id"""
 
-    cursor.execute(query, {'name': name})
+    cursor.execute(query)
 
     for row in cursor.fetchall():
-        if row[1] == name:
-            print(row)
+        print(row)
 
     cursor.close()
     db.close()
