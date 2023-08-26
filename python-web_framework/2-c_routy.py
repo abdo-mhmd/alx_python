@@ -1,4 +1,6 @@
 from flask import Flask
+"""Flask model to use flask framework
+"""
 
 app = Flask(__name__)
 
