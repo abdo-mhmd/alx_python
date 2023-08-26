@@ -1,6 +1,8 @@
-from flask import Flask
+#!/usr/bin/python3
 """Flask model to use flask framework
 """
+
+from flask import Flask
 app = Flask(__name__)
 
 

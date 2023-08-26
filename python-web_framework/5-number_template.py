@@ -1,6 +1,7 @@
-from flask import Flask, render_template
+#!/usr/bin/python3
 """Flask model to use flask framework
 """
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
