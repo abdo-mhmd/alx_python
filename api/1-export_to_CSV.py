@@ -7,16 +7,16 @@ import requests
 import sys
 
 userID = sys.argv[1]
-url = 'https://jsonplaceholder.typicode.com/users/' + userID
-response = requests.get(url + '/todos')
-data = response.json()
+user_url = 'https://jsonplaceholder.typicode.com/users'
+todos_url = 'https://jsonplaceholder.typicode.com/todos'
 
-TOTAL_NUMBER_OF_TASKS = len(data)
-EMPLOYEE_NAME = requests.get(url).json()['username']
+response = requests.get(todos_url)
+todos = response.json()
 
-with open(f'./{userID}.csv', 'w') as f:
+user_name = requests.get(user_url + '/' + userID).json()['username']
+
+with open('{}.csv'.format(userID), 'w') as f:
     writer = csv.writer(f)
-    for task in data:
-        writer.writerow(
-            [userID, EMPLOYEE_NAME, task['completed'], task['title']])
-    f.close()
+    for todo in todos:
+        if todo['userId'] == int(userID):
+            writer.writerow([userID, user_name, todo['completed'], todo['title']])

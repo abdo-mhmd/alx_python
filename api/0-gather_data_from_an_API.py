@@ -6,23 +6,24 @@ import requests
 import sys
 
 userID = sys.argv[1]
-url = 'https://jsonplaceholder.typicode.com/users/'
-response = requests.get(url + str(userID) + '/todos')
-data = response.json()
-
-TOTAL_NUMBER_OF_TASKS = len(data)
-NUMBER_OF_DONE_TASKS = 0
-EMPLOYEE_NAME = requests.get(url + str(userID)).json()['name']
+user_url = 'https://jsonplaceholder.typicode.com/users'
+todos_url = 'https://jsonplaceholder.typicode.com/todos'
+response = requests.get(todos_url)
+todos = response.json()
+todos_count = 0
+todos_done = 0
+name = requests.get(user_url + '/' + str(userID)).json()['name']
 tasks = []
+      
+for todo in todos:
+    if todo['userId'] == int(userID):
+        todos_count += 1
+        if todo['completed'] is True:
+            todos_done += 1
+            tasks.append(todo['title'])
 
-for todo in data:
-    if todo.get('completed') == True:
-        NUMBER_OF_DONE_TASKS += 1
-        tasks.append(todo.get('title'))
-
-print('Employee {} is done with tasks({}/{})'.format(EMPLOYEE_NAME,
-      NUMBER_OF_DONE_TASKS, TOTAL_NUMBER_OF_TASKS))
+print('Employee {} is done with tasks({}/{})'.format(name, todos_done, todos_count))
 
 for task in tasks:
     print('\t' + task)
-
+    
