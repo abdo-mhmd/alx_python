@@ -1,36 +1,28 @@
+#!/usr/bin/python3
 import json
 import requests
 
-url = 'https://jsonplaceholder.typicode.com/users'
-response = requests.get(url)
+user_url = 'https://jsonplaceholder.typicode.com/users'
+todos_url = 'https://jsonplaceholder.typicode.com/todos'
 
-if response is not None:
-    data = response.json()
-    users_len = len(data)
-    task_obj = {}
-    json_obj = {}
-    list_todo = []
+users = requests.get(user_url).json()
+todos = requests.get(todos_url).json()
+users_count = len(users)
 
+user = []
+json_obj = {}
 
-    for i in range(users_len):
-        userID = data[i]['id']
-        userName = data[i]['username']
-        
-        url_todo = url + '/' + str(userID) + '/todos'
-        response_todo = requests.get(url_todo)
-        data_todo = response_todo.json()
+for userId in range(users_count):
+    for todo in todos:
+        if todo['userId'] == userId + 1:
+            user.append({
+                'username': users[userId]['username'],
+                'task': todo['title'],
+                'completed': todo['completed']
+            })
 
-        for task in data_todo:
-            task_obj['username'] = userName
-            task_obj['task'] = task['title']
-            task_obj['completed'] = task['completed']
-            list_todo.append(task_obj)
-            task_obj = {}
+    json_obj[userId + 1] = user
+    user = []
 
-        json_obj[userID] = list_todo
-        list_todo = []
-
-    with open('./todo_all_employees.json', 'w') as f:
-        json.dump(json_obj, f)
-else:
-    print('Error')
+with open('./todo_all_employees.json', 'w') as js:
+    json.dump(json_obj, js)

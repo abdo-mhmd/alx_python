@@ -22,8 +22,7 @@ for todo in todos:
             todos_done += 1
             tasks.append(todo['title'])
 
-print('Employee {} is done with tasks({}/{})'.format(name, todos_done, todos_count))
+print("Employee {} is done with tasks({}/{}):".format(name, todos_done, todos_count))
 
 for task in tasks:
-    print('\t' + task)
-    
+    print('\t {}'.format(task))
